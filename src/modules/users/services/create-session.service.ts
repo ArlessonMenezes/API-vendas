@@ -1,6 +1,7 @@
 import AppError from "@shared/errors/AppError";
 import { compare } from "bcryptjs";
 import { sign } from "jsonwebtoken";
+import authConfig from '@config/auth'
 import { getCustomRepository } from "typeorm";
 import { User } from "../typeorm/entities/User";
 import { UserRepository } from '../typeorm/repositories/user.repository';
@@ -34,8 +35,8 @@ export class CreateSessionService {
 
     //gerando token = sigin({ payload }, 'hash', { expiração do token })
     const token = sign({data: String( user.id )},
-        'KHSFjlkhsf0(&09s8fHLKH@$IO&DoShflknsdlfnm.df', {
-        expiresIn:'1d'
+        authConfig.jwt.secret, {
+        expiresIn:authConfig.jwt.expiresIn
       },
     );
 

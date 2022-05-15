@@ -1,6 +1,7 @@
 import { Router } from "express";
 import { UserController } from "../controller/user.controller";
 import { celebrate, Joi, Segments } from "celebrate";
+import isAuthenticated from "../middlewares/is-authenticated";
 
 const usersRouter = Router()
 const userController = new UserController()
@@ -17,6 +18,6 @@ usersRouter.post(
   userController.createUser
 )
 
-usersRouter.get('/', userController.getUsers)
+usersRouter.get('/', isAuthenticated, userController.getUsers)
 
 export default usersRouter;

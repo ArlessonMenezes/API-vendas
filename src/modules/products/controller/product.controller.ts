@@ -51,7 +51,7 @@ export default class ProductController {
       price,
       quantity
     })
-    console.log(product)
+    
     return res.json(product)
   }
 

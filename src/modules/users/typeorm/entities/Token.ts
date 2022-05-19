@@ -1,13 +1,13 @@
 import { generateKey } from 'crypto';
 import { Column, CreateDateColumn, Entity, Generated, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
-@Entity('users_token')
+@Entity('users_tokens')
 export class Token {
   @PrimaryGeneratedColumn('increment')
   id: string;
 
   @Column()
-  @Generated('increment')
+  //@Generated('increment')
   token: string;
 
   @Column()

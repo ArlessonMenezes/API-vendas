@@ -1,4 +1,3 @@
-import { generateKey } from 'crypto';
 import { Column, CreateDateColumn, Entity, Generated, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
 
 @Entity('users_tokens')

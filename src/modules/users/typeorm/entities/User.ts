@@ -1,4 +1,3 @@
-import { BeforeInsert } from 'typeorm';
 import {
   Column,
   Entity,
@@ -9,8 +8,8 @@ import {
 
 @Entity('users')
 export class User {
-  @PrimaryGeneratedColumn('increment')
-  id: string
+  @PrimaryGeneratedColumn('uuid')
+  id: string;
 
   @Column()
   name: string;

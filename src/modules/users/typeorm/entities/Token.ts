@@ -1,12 +1,20 @@
-import { Column, CreateDateColumn, Entity, Generated, PrimaryGeneratedColumn, UpdateDateColumn } from 'typeorm';
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  Generated,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn
+} from 'typeorm';
+import { v4 as uuidv4 }  from 'uuid';
 
 @Entity('users_tokens')
 export class Token {
-  @PrimaryGeneratedColumn('increment')
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()
-  //@Generated('increment')
+  @Generated('uuid')
   token: string;
 
   @Column()
@@ -17,4 +25,10 @@ export class Token {
 
   @UpdateDateColumn()
   updated_at: Date;
+
+  constructor() {
+    if (!this.token) {
+      this.token = uuidv4()
+    }
+  }
 }

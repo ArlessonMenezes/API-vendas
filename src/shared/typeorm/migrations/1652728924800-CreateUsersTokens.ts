@@ -16,7 +16,7 @@ export class CreateUsersTokens1652551546932 implements MigrationInterface {
           },
           {
             name: 'token',
-            type: 'increment',
+            type: 'string',
             generationStrategy: 'increment',
             isGenerated: true,
           },

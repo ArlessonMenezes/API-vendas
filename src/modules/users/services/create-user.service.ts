@@ -18,7 +18,6 @@ export class CreateUserService {
     if (emailExist) {
       throw new AppError("E-mail adress alread used")
     }
-
     const hashedPassword = await hash(user.password, 10)
 
       const userCreated = userRepository.create({
@@ -26,7 +25,7 @@ export class CreateUserService {
         email: user.email,
         password: hashedPassword,
       })
-      console.log(userCreated)
+      
       return await userRepository.save(userCreated)
   }
 }

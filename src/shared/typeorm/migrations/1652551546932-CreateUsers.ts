@@ -9,9 +9,9 @@ export class CreateUsers1652551546932 implements MigrationInterface {
         columns: [
           {
             name: 'id',
-            type: 'increment',
+            type: 'uuid',
             isPrimary: true,
-            generationStrategy: 'increment',
+            generationStrategy: 'uuid',
             isGenerated: true,
           },
           {

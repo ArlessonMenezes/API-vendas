@@ -12,7 +12,7 @@ export class ForgotPasswordController {
     await sendForgotPasswordEmail.execute({
       email,
     });
-    console.log(email)
+    
     return response.status(204).json();
   }
 }

@@ -1,5 +1,4 @@
 import { Request, Response } from 'express';
-import { CreateUserService } from "../services/create-user.service";
 import { SendForgotPasswordEmailService } from '../services/send-forgot-password-email.service';
 
 export class ForgotPasswordController {
@@ -12,7 +11,7 @@ export class ForgotPasswordController {
     await sendForgotPasswordEmail.execute({
       email,
     });
-    
+
     return response.status(204).json();
   }
 }

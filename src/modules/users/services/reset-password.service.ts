@@ -39,6 +39,8 @@ export class ResetPasswprdService {
 
     const hashedPassword = await hash(resetPassword.password, 10)
     user.password = hashedPassword
+
+    await userRepository.save(user);
   }
 
 }

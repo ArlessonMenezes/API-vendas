@@ -29,6 +29,6 @@ export class Token {
   constructor() {
     if (!this.token) {
       this.token = uuidv4()
-    }
+    } 
   }
 }

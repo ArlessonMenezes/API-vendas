@@ -1,14 +1,14 @@
 import { getCustomRepository } from "typeorm";
 import { UserRepository } from "../typeorm/repositories/user.repository";
 import AppError from '../../../shared/errors/AppError';
-import { compare, hash } from "bcryptjs";
+import { compare, hash } from "bcrypt";
 
 interface IRequest {
   user_id: string;
   name: string;
   email: string;
-  password: string;
-  old_password: string;
+  password?: string;
+  old_password?: string;
 }
 
 export class UpdateProfileService {
@@ -46,12 +46,11 @@ export class UpdateProfileService {
       }
     }
 
-    const hashedPassword = await hash(password, 10);
+    userExist.password = await hash(password, 10);
 
     const user = await userRepository.update(user_id, {
       name,
       email,
-      password: hashedPassword,
     })
 
     return user;

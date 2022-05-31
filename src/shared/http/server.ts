@@ -27,13 +27,14 @@ app.use(
     res: Response,
     next: NextFunction
   ) => {
+    console.log(error)
     if (error instanceof AppError) {
       return res.status(error.statusCode).json({
         status: 'error',
         message: error.message
       })
     }
-    
+
     return res.status(500).json({
       status: 'error',
       message: 'Internal server error'

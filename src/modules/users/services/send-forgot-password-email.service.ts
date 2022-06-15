@@ -1,7 +1,8 @@
-import { EtherealMail } from '../../../config/mail/Ethereal.mail';
-import AppError from '@shared/errors/AppError';
+import path = require('path')
 import { getCustomRepository } from 'typeorm';
-import path from 'path';
+
+import { EtherealMail } from '../../../config/mail/Ethereal.mail';
+import AppError from '../../../shared/errors/AppError';
 import { TokenRepository } from '../typeorm/repositories/token.repository';
 import { UserRepository } from '../typeorm/repositories/user.repository';
 

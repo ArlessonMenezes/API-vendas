@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { celebrate, Joi, Segments } from "celebrate";
 import isAuthenticated from "../../../shared/http/middlewares/is-authenticated";
-import { ProfileController } from "../controller/profile.controller";
+import { ProfileController } from "../controllers/profile.controller";
 
 const profileRouter = Router()
 const profileController = new ProfileController()

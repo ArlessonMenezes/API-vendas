@@ -13,18 +13,18 @@ export class Order {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
+  @ManyToOne(() => Customer)
+  @JoinColumn({ name: 'customer_id' })
+  customer: Customer;
+
+  @OneToMany(() => OrdersProducts, order_products => order_products.order, {
+    cascade: true,
+  })
+  order_products: OrdersProducts[];
+
   @CreateDateColumn()
   created_at: Date;
 
   @UpdateDateColumn()
   updated_at: Date;
-
-  @ManyToOne(() => Customer)
-  @JoinColumn({ name: 'customer_id' })
-  customer: Customer;
-
-  @OneToMany(() => OrdersProducts, orders_products => orders_products.order, {
-    cascade: true,
-  })
-  orders_products: OrdersProducts[];
 }

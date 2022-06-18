@@ -8,7 +8,7 @@ import { OrdersProducts } from '../../../orders/typeorm/entities/order-products.
 
 @Entity('product')
 export default class Product {
-  @PrimaryGeneratedColumn('increment')
+  @PrimaryGeneratedColumn('uuid')
   id: string;
 
   @Column()

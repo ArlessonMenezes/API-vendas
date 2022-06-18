@@ -1,10 +1,10 @@
 import { Router } from "express";
-import { UserController } from "../controller/user.controller";
+import { UserController } from "../controllers/user.controller";
 import { celebrate, Joi, Segments } from "celebrate";
 import uploadConfig from '@config/upload';
 import multer from 'multer';
 import isAuthenticated from "../../../shared/http/middlewares/is-authenticated";
-import { UserAvatarController } from '../controller/user-avatar.controller';
+import { UserAvatarController } from '../controllers/user-avatar.controller';
 
 const usersRouter = Router()
 const userController = new UserController()
